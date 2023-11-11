@@ -1,0 +1,141 @@
+@font-face{
+	font-family:'Gamer';
+	src:url('/fuentes/Gamer.ttf');
+}
+
+
+
+h1{
+ 
+ text-align:center;
+ color:white;
+ font-family: Arial, Helvetica, sans-serif;
+}
+body{
+	background-color: rgb(230, 129, 202);
+}
+#footer{
+	text-align: center;
+	color:white;
+}
+
+
+section{
+    background:rgba(0,0,0,.7);
+	display:flex;
+	flex-direction: column;
+	justify-content:flex-start;
+	align-items:flex-start;
+	width:90%;
+	height:100%;
+	margin:50px auto;
+	font-size:25px;
+	margin:10px;
+	border:2px solid black;
+	color:white;
+
+
+}
+.img{
+	width:30%;
+	height:30%;
+	margin:20px;
+	border-radius:50%;
+}
+h2{
+	margin-left:20px;
+	font-size: 40px;
+}
+#ContenedorImgNombre{
+	display:flex;
+	justify-content:flex-start;
+	align-items:center;
+}
+p{
+	margin:20px;
+}
+aside{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border:2px solid;
+	width:30%;
+	margin:10px;
+	background:rgba(240, 242, 245);
+}
+#contenedorP{
+	display:flex;
+	align-items:center;
+	margin:50px;
+	margin-bottom:0px;
+	font-weight:bold;
+}
+.imgg{
+	margin:0;
+	background-size:cover;
+	width:100%;
+	height:50%;
+}
+
+
+
+.flex-principal{
+	display:flex;
+	flex-direction:column;
+	height:75%;
+	justify-content:center;
+	align-items:center;
+	border:2px solid red;
+	color:white;
+}
+
+input{
+	height:5vh;
+	text-align:center;
+
+}
+#cancelar{
+	margin-top:20px;
+	height:10%;
+}
+#editorcentrall{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items: center;
+}
+#botonProductos{
+	background:rgb(229, 229, 229);
+	color:black;
+	text-decoration: none;
+	padding:6px;
+	
+}
+label{
+	font-weight:bold;
+	font-size:25px;
+}
+#botonProductos{
+	width: 100%;
+	background-color: beige;
+	border-radius: 2px;
+	border: 2px;
+	padding: 10px;
+	color: black;
+	margin: 10px 0;
+	font-size: 16px;
+	margin-top: 
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	width: 100%;
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 30px;
+}

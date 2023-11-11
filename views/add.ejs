@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    <meta charset="utf-8">
+    <meta charset="iso-8559-1"/>
+    <meta name= "description" content="pagina de enseñanza"/>
+    <meta name="keywords" content="html5,javascript,diseño web"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/update.css">
+   <title>Update</title>
+</head>
+<header>
+    <h1>Bebidas Alcoholica</h1>
+    <nav>
+      <ul>
+        <li><a href="/productos">Volver </a></li>
+        
+        
+      </ul>
+    </nav>
+   </header>
+
+<main class="forms"> 
+ <h1 id="crear">Agregar Bebidas</h1>
+
+
+<form action="/addPost" method="post">
+
+
+<div id="editorcentrall">
+
+
+<input type="text" autofocus name="nombre" placeholder="Nombre" />
+<input name="codigo" type="number" placeholder=" Codigo" />
+<input type="number" name="precio" placeholder=" Precio">
+<input type="text" name="descripcion" placeholder=" Descripcion">
+<input type="text" name="calidad" placeholder=" Calidad">
+<input type="number" name="cantidad" placeholder=" Cantidad">
+
+	<input type="submit" value="Agregar" id="update">
+    
+</div>
+</form>
+</main>
+</body>
+<%- include('footer') -%>
+</html>

@@ -1,0 +1,41 @@
+body{
+background-color: rgb(96, 157, 67);
+}
+#login{
+	width: 400px;
+	background: 7px 13px 37px #545;
+	padding: 30PX; 
+	margin:auto;
+	margin-top: 150PX;
+	border-radius: 20px;
+
+	color: #ffffff;
+	box-shadow: 7px 13px 37px rgb(56, 161, 105);
+	text-shadow: 0 1px;
+
+}
+label{
+	font-weight: bold;
+	font-size: 30px;
+	color:white;
+}
+h1{
+	text-align:center;
+	font-weight: unset;
+}
+form{
+	display:flex;
+	flex-direction: column;
+	
+	
+}
+input{
+padding:8px;
+border-radius:10px 10px 10px 10px;
+}
+#iniciar{
+	margin-top:10px;
+	padding: 7px;
+	border-radius:10px 10px 10px 10px;
+}
+#inicia
