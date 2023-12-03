@@ -4,12 +4,16 @@
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7",
     "sqlite3": "^5.1.6"
   },
   "name": "Everson",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "controllers.js",
   "scripts": {
+    "dev": "nodemon *.*",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon controllers.js"
   },
