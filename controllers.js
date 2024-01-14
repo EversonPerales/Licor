@@ -231,7 +231,7 @@ app.post('/registroUsuariosPost',recaptcha.middleware.verify, (req, res) => {
   }
  });
 //-------------------------------------------------------
-app.get('/comprar/:id',obtenerDireccionIp,verifyToken,(req,res)=>{
+app.get('/comprar/:id',obtenerDireccionIP,verifyToken,(req,res)=>{
   res.clearCookie('transaction');
   baseDatos.comprar(req,res);
   });
