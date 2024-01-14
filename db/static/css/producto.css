@@ -1,0 +1,140 @@
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+body{
+background-image:url('/img/OIPO.jpg');
+background-size:cover;
+background-attachment:fixed;
+}
+.table{
+margin:50px auto;
+width:90%;
+background:rgb(0,0,0,.7);
+border-radius: 4px;
+font-family: 'Montserrat';
+border-spacing: 0;
+
+box-shadow: 7px 13px 37px #826261 
+}
+table{
+ color:white;
+ width:100%;
+}
+h1{
+	color:rgb(248, 246, 246);
+	text-align:center;
+	margin-top:50px;
+	font-family: ru;
+}
+td:nth-child(1){
+    text-align: center;
+    font-weight: bold;
+    background-color: #826261 ;
+    text-align: center;
+    padding: 0;
+}
+
+td:nth-last-child(1), td:nth-last-child(2){
+    text-align: center;
+    background-color: #826261;
+}
+
+th{
+    background-color: rgb(0, 0, 0);
+    padding: 5px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+td {
+    padding-left: 30px;
+    padding: 10px;
+}
+
+tr{
+    text-overflow: clip;
+}
+
+tr:nth-child(even){
+    background-color: rgb(135, 95, 95);
+}
+
+tr:nth-child(odd){
+    background-color:#826261;
+}
+#botonProductos{
+	background:rgb(229, 229, 229);
+	color:black;
+	text-decoration: none;
+	padding:6px;
+	margin:20px;
+}
+#add{
+ height:5vh;
+}
+header > h1 {
+color: white;
+font-family:'Rubik', sans-serif;
+font-size: 40px;
+}
+header > h1::first-letter{
+	color: rgb(254, 255, 254);
+	font-weight: 900;
+	font-size: 40px;
+
+}
+header{
+	width: 100%;
+	height: 100px;
+	background-color:rgb(97, 58, 58);
+	border-bottom: dashed 0px rgb(125, 80, 80);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	box-shadow: 7px 14px 16px rgb(75, 75,75, 0.747 );
+
+}
+nav ul {
+	width:  100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+  }
+  
+  nav ul li {
+	list-style: none;
+  }
+  
+  nav ul li a {
+	padding: 10px 20px;
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: "Montserrat";
+  }
+  nav ul li a:hover {
+	border-bottom:solid 1.5px white;
+  }
+ 
+  @font-face {
+	font-family: "Rubik";
+	src: url("/fonts/Rubik.ttf");
+  }
+  
+  @font-face{
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat.ttf");
+  }
+  
+  

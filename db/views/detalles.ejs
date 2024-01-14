@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Detalles</title>
+	<style type="text/css">
+	 @font-face{
+            font-family:'fuenteC';
+            src:url(/fuentes/HyperSuperFast.ttf);
+           }
+		img{
+			width:25%;
+			height: auto;
+			margin:20px;
+		}
+		#contenedor{
+			display:flex;
+			justify-content: center;
+		 width: 80%;
+		 margin:70px auto;
+		}
+		h1{
+			text-align: center;
+			line-height:100px;
+			font:50px 'fuenteC';
+		}
+		a{
+			text-decoration:none;
+			color:black;
+			font:30px 'fuenteC';
+			margin-left:20px;
+		}
+	</style>
+</head>
+<body>
+	<h2>Detalles del Producto</h2>
+	<div id='contenedor'>
+   <% for(let magui = 0;magui < imagenes.length;magui++){ %>
+	<img id='imgk' src="<%= imagenes[magui].url%>">
+	<div style='display:flex;flex-direction: column;justify-content: center;align-items: center;'>
+	 <p><strong>Nombre :</strong><%= imagenes[magui].nombre%></p>
+	 <p><strong>Codigo :</strong><%= imagenes[magui].codigo%></p>
+	 <p><strong>Precio :</strong><span style='color:rgb(9, 247, 56)'><%= imagenes[magui].precio%>$</span></p>
+	 <p><strong>Descripcion :</strong><%= imagenes[magui].descripcion%></p>
+	 <p><strong>Calidad :</strong><%= imagenes[magui].calidad%></p>
+	 <p><strong>Cantidad :</strong><%= imagenes[magui].cantidad%></p>
+	 <p><strong>Categoria :</strong><%= imagenes[magui].categoria_id%></p>
+	 
+	 
+	 </div>
+  
+   <% } %>
+ 
+	</div>
+
+</body>
+</html>

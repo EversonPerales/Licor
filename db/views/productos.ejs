@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Productos</title>
+  <link rel="stylesheet" type="text/css" href="/css/producto.css">
+  
+</head>
+<body>
+ <header>
+  <h1>Bebidas Alcoholicas</h1>
+  <nav>
+    <ul>
+      <li><a href="/logout2">Cerrar Sección</a></li>
+      <li><a href="/add">Agregar Producto</a></li>
+      <li><a href="/categorias">Categoria</a></li>
+      <li> <a href="/usuarios">Usuarios</a></li>
+      <li><a href="/compras">Compras</a></li>
+    </ul>
+  </nav>
+ </header>
+
+
+
+
+
+  <h1> Gestion de Productos </h1>
+  <div class="table">
+    <table border>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Codigo</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Calidad</th>
+            <th>Cantidad</th>
+            <th>Categoria</th>
+            <th>Opciones</th>
+          </tr>
+          <%for(const producto of modelo){%>
+            <tr>
+              <td><%=producto.producto_id%></td>
+              <td><%=producto.nombre%></td>
+              <td><%=producto.codigo%></td>
+              <td><%=producto.precio%></td>
+              <td><%=producto.descripcion%></td>
+              <td><%=producto.calidad%></td>
+              <td><%=producto.cantidad%></td>
+              <td><%=producto.categoria_id%></td>
+              <td class="icon">
+              <a href="/update/<%= producto.producto_id%>"><img src="/img/edit.jpg" width="30"></a>
+              <a href="/delete/<%= producto.producto_id%>"><img src="/img/eli.jpg" width="30" id="delete"></a>
+              <a href="/addImagen/<%= producto.producto_id%>"><img src="/icon/imagen.png" width="30"></a>
+             </td>
+            </tr>
+           <%}%>
+        </table>
+       
+  </div>
+ 
+</body>
+</html>
