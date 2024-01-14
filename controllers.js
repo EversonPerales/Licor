@@ -5,7 +5,7 @@ const Recaptcha = require('express-recaptcha').RecaptchaV2;
 const recaptcha = new Recaptcha('6Le-zEspAAAAAKBnMLEltJkPi7BaJejSzSQ_p6Ql', '6Le-zEspAAAAAOrp_wdWtdwYHcwTSJ9LBThuvVp3');
 const multer = require('multer');
 const http = require('http');
-const { obtenerDireccionIp} = require('./middleware/direccionIP.js')
+const { obtenerDireccionIP} = require('./middleware/direccionIP.js')
 const express = require('express');
 const app = express();
 const bodyParser= require('body-parser');
@@ -64,7 +64,7 @@ app.set('views',path.join(__dirname,"./views"));//definimos la ruta del motor de
 app.use(express.urlencoded({extended:false}));//permite recuperar los valores publicados en un request
 app.use(cookieParser());
 app.use(express.json());
-app.use(obtenerDireccionIp);
+app.use(obtenerDireccionIP);
 const jwt = require('jsonwebtoken');
 console.log('Servidor corriendo exitosamente en el puerto 5000');
 
