@@ -18,7 +18,7 @@ const {verifyToken2} = require('./middleware/JWT2.js');
 
 const {ADMIN,PASSWORD,port,secretKey2} = process.env;
 let ext;
-app.use(express.json());
+
 
 
 
