@@ -34,14 +34,25 @@
 	</style>
 </head>
 <body>
-  <h1>Detalles del producto</h1>
-
-   <div id='contenedor'>
-  <%for(let zheta = 0;zheta < imagenes.length;zheta++){ %>
-   <img src="<%= imagenes[zheta].url%>">
-  <% } %>
-   </div>
-   <a href="/cliente">Volver</a>
+	<h2>Detalles del Producto</h2>
+	<div id='contenedor'>
+   <% for(let magui = 0;magui < imagenes.length;magui++){ %>
+	<img id='imgk' src="<%= imagenes[magui].url%>">
+	<div style='display:flex;flex-direction: column;justify-content: center;align-items: center;'>
+	 <p><strong>Nombre :</strong><%= imagenes[magui].nombre%></p>
+	 <p><strong>Codigo :</strong><%= imagenes[magui].codigo%></p>
+	 <p><strong>Precio :</strong><span style='color:rgb(9, 247, 56)'><%= imagenes[magui].precio%>$</span></p>
+	 <p><strong>Descripcion :</strong><%= imagenes[magui].descripcion%></p>
+	 <p><strong>Calidad :</strong><%= imagenes[magui].calidad%></p>
+	 <p><strong>Cantidad :</strong><%= imagenes[magui].cantidad%></p>
+	 <p><strong>Categoria :</strong><%= imagenes[magui].categoria_id%></p>
+	 
+	 
+	 </div>
+  
+   <% } %>
+ 
+	</div>
 
 </body>
 </html>
