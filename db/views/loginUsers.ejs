@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login Usuario</title>
+	<link rel="stylesheet" type="text/css" href="/css/users.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        </style>
+        
+</head>
+<body>
+    <div class="containerRegistro">
+        <section class="form-register">
+    
+         <h2 style="text-align: center">Inicia sesion </h2>
+		 <div id="login">
+          <br>
+               <tr>
+               
+        <form class="login_form" action="/loginUsers" method="post">
+            <fieldset>
+
+             
+              <br>
+              <td>
+                <label for="user">Correo</label>
+				<input type="email" placeholder="eversonp@gmail.com" aria-label="eversonp@gmail.com" data-sb-validations="required,email" name="email"  class="controls" required="required">
+                </td>
+             </tr>
+                <tr> 
+                  <td> 
+                    <label for="pss">Contraseña</label>
+                    <input class="controls" type="password" data-sb-validations="required,password" name="password">
+                  </td>
+                </tr>
+                <tr>
+                    <div style='display:flex;justify-content: center;align-items: center'>
+                        <p >¿No tienes una cuenta? </p>
+                        <a href="/registroUsers">Registrarse</a>
+                       
+                       </div>
+                </tr>
+
+             </fieldset>
+             
+            <button class= "button" type="submit" value="Enviar"><a>Entrar</a></button>
+           
+            </form>
+			</div>
+        </section>
+
+      </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+.forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.login h1, .login p {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(OPIO.jpg);
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.login form {
+    height: 30%;
+}
+
+.login input {
+    height: 30px;
+}
+
+.login input[type="submit"] {
+    width: 120px;
+}
+
+form {
+    display: flex;
+    width: 500px;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:1px;
+    background-color: rgba(143, 83, 83, 0.738);
+    box-shadow: 7px 13px 37px #000000;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+tr, th, td {
+    height: 50px;
+}
+
+input {
+    width: 200px;
+    height: 40px;
+    background-color:  rgb(255, 255, 255);
+    border: solid 2px #826261;
+    border-radius: 8px;
+}
+
+input:hover, textarea:hover{
+    border: solid 3px  rgb(0, 0, 0);
+    background-color: rgb(255, 254, 254);
+    
+}
+
+input[type="submit"]{
+    margin-top: 50px;
+   
+    transition: .2s ease;
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(247, 247, 247);
+	
+}
+
+input[type="submit"]:active{
+    background-color: rgba(53, 53, 53, 0.568);
+	
+}
+
+textarea {
+    width: 230px;
+    height: 80px;
+    border: solid 2px  #826261;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+.add-medic {
+    width: 550px;
+    height: 350px;
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+    align-items: stretch    ;
+    width: 100%;
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+   }
+   main {
+	   display: flex;
+	   flex-direction: column;
+	   justify-content: space-between;
+	   align-items: center;
+	   color: white;
+   }
+   body{
+   background-image:url('/img/OPIO.jpg');
+   background-size:cover;
+   background-attachment:fixed;
+   }
+   .table{
+   margin:50px auto;
+   width:90%;
+   background:rgb(0,0,0,.7);
+   border-radius: 4px;
+   font-family: 'Montserrat';
+   border-spacing: 0;
+   
+   box-shadow: 7px 13px 37px #ffffff 
+   }
+   table{
+	color:white;
+	width:100%;
+   }
+   h1{
+	   color:black;
+	   text-align:center;
+	   margin-top:50px;
+	   font-family: ru;
+   }
+   td:nth-child(1){
+	   text-align: center;
+	   font-weight: bold;
+	   background-color: rgb(255, 255, 255);
+	   text-align: center;
+	   padding: 0;
+   }
+   
+   td:nth-last-child(1), td:nth-last-child(2){
+	   text-align: center;
+	   background-color: rgb(0, 0, 0);
+   }
+   
+   th{
+	   background-color: rgb(0, 0, 0);
+	   padding: 5px;
+	   text-align: center;
+	   border-radius: 2px;
+   }
+   
+   td {
+	   padding-left: 30px;
+	   padding: 10px;
+   }
+   
+   tr{
+	   text-overflow: clip;
+   }
+   
+   tr:nth-child(even){
+	   background-color: rgba(184, 110, 110, 0.824);
+   }
+   
+   tr:nth-child(odd){
+	   background-color: rgb(145, 145, 145);
+   }
+   #botonProductos{
+	   background:rgb(229, 229, 229);
+	   color:black;
+	   text-decoration: none;
+	   padding:6px;
+	   margin:20px;
+   }
+   #add{
+	height:5vh;
+   }
+   header > h1 {
+   color: white;
+   font-family:'Rubik', sans-serif;
+   font-size: 40px;
+   }
+   header > h1::first-letter{
+	   color: rgb(255, 255, 255);
+	   font-weight: 900;
+	   font-size: 40px;
+   
+   }
+   header{
+	   width: 100%;
+	   height: 100px;
+	   background-color:#826261;
+	   border-bottom: dashed 0px rgb(0,0,0);
+	   display: flex;
+	   justify-content: space-between;
+	   align-items: center;
+	   padding: 0 20px;
+	   box-shadow: 7px 14px 16px#826261;
+   
+   }
+   nav ul {
+	   width:  100%;
+	   display: flex;
+	   justify-content: space-around;
+	   align-items: center;
+	 }
+	 
+	 nav ul li {
+	   list-style: none;
+	 }
+	 
+	 nav ul li a {
+	   padding: 10px 20px;
+	   color: white;
+	   text-transform: uppercase;
+	   text-decoration: none;
+	   font-size: 14px;
+	   font-family: "Montserrat";
+	 }
+	 nav ul li a:hover {
+	   border-bottom:solid 1.5px white;
+	 }
+	
+	 @font-face {
+	   font-family: "Rubik";
+	   src: url("/fonts/Rubik.ttf");
+	 }
+	 
+	 @font-face{
+	   font-family: "Montserrat";
+	   src: url("/fonts/Montserrat.ttf");
+	 }
+	 
+	 #login{
+		width: 400px;
+		background: 7px 13px 37px #545;
+		padding: 30PX; 
+		margin:auto;
+		margin-top: 150PX;
+		border-radius: 20px;
+	
+		color: #ffffff;
+		box-shadow: 7px 13px 37px #e2df;
+		text-shadow: 0 1px;
+	
+	}
+	label{
+		font-weight: bold;
+		font-size: 30px;
+		color:white;
+	}
+	h1{
+		text-align:center;
+		font-weight: unset;
+	}
+	
+	input{
+	padding:8px;
+	border-radius:10px 10px 10px 10px;
+	}
+	#iniciar{
+		margin-top:10px;
+		padding: 7px;
+		border-radius:10px 10px 10px 10px;
+	}
+	#inicia
+	body{
+		background-image:url(/img/OPIO.jpg);
+		background-size:cover;
+		background-attachment: fixed;
+		}
+		form{
+			display: flex;
+			flex-direction: column;
+			margin:100px auto;
+			width:40%;
+			background:rbg(0,0,0,.8);
+		}
+		input{
+			padding:10px;
+			margin:10px;
+		}
+		label{
+			font-size: 30px;
+			font-weight: bold;
+		}
+		#sendImg{
+			
+		}

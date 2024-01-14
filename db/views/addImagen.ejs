@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Imagen</title>
+	<link rel="stylesheet" type="text/css" href="/css/update.css">
+	
+	
+</head>
+ <header>
+    <h1>Bebidas Alcoholicas</h1>
+    <nav>
+      <ul>
+        <li><a href="/productos">Volver </a></li>
+        
+        
+      </ul>
+    </nav>
+   </header>
+<body>
+
+
+	
+	
+	
+		<div id='divDestacado'>
+	
+			<form action="/addImagen/<%=modelo.producto_id%>" method="post" enctype="multipart/form-data">
+				
+				<label for='imagen'>Imagen</label>
+				
+				<input type="file" name="img" id="img" placeholder="Imagen">
+			  
+				<label for="destacado">Destacado</label>
+				
+				<input type="number" name="destacado" value='1' id='destacado' style='text-align: center;'>
+			
+				<input type="submit" value="add" id="destacado">
+			</form>
+			</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Buscar Licor Venezolano </title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/clientes.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <header>
+                <a class="navbar-brand" href="/">Linea Blanca</a>
+                <div class="row input-group-newsletter">
+                  <div id='styleDiv1'>
+
+            
+                   <input type="search" placeholder="Buscar" id='buscarPrincipal'> 
+
+                   <a href="#scroll"><button onclick="buscarProductos()" id='boton3'>Buscar</button>
+                   </a>
+                   
+                  </div>
+
+                </div>
+               
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        
+                        
+                        <li class="nav-item"><a class="nav-link" href="/clientes">Volver</a></li>
+                    </ul>
+                </div>
+            </header>
+
+        </nav>
+        <br>
+        <br>
+        <br>
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Buscar Productos</h2>
+                    <h3 class="section-subheading text-muted">Asegurate de buscar bien tu producto!</h3>
+                </div>
+               
+            </div>
+        </section>
+
+        <div id='galeriaImagenes'>
+            
+        </div>
+
+        <div style='display:flex;flex-direction: column;justify-content: center;align-items: center;margin:50px auto;width:40%;' id='otroResultado'>
+          <img src="<%= result.url %>" style='width:60%;height:50vh;'>
+          <p>Nombre: <%= result.nombre %></p> 
+          <p>Codigo: <%= result.codigo %></p>
+          <p>Precio: <%= result.precio %></p>
+          <p>Descripcion: <%= result.descripcion %></p>
+          <p>Calidad: <%= result.calidad %></p>
+          <p>Cantidad: <%= result.cantidad %></p> 
+
+        </div>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script type="text/javascript">
+
+  function buscarProductos(){
+  const searchInput = document.getElementById('buscarPrincipal');
+  const valorBusqueda = searchInput.value.trim();
+  let galeriaImagenesBusqueda = document.getElementById('galeriaImagenes'); 
+  console.log(valorBusqueda,'dato del query');
+
+   // Elimina el último hijo de galeriaImagenesBusqueda, si existe
+ const ultimoHijo = galeriaImagenesBusqueda.lastElementChild;
+  if (ultimoHijo){
+    galeriaImagenesBusqueda.removeChild(ultimoHijo);
+  }
+
+     // Realiza la solicitud al servidor
+    fetch(`/clientico?busqueda=${valorBusqueda}`)
+    .then(response => response.json())
+    .then(data => {
+
+        if(data && data.producto.length > 0){
+         let otroResultado = document.getElementById('otroResultado');
+         otroResultado.style='display:none';
+           let fragmento= document.createDocumentFragment();
+         let img = document.createElement("img");
+         let nombre = document.createElement('P');
+         let precio = document.createElement('P');
+         let div = document.createElement('DIV');
+         let div2 = document.createElement('DIV');
+         div2.style='display:flex;flex-direction:column;justify-content:center;aling-item:center;margin-left:30px';
+         div.style='display:flex';
+         nombre.innerHTML=`<span class='etiquetaP'>Nombre :</span> ${data.producto[0].nombre}`;
+         precio.innerHTML=`<span class='etiquetaP'>Precio :</span> <span style='color:green'>${data.producto[0].precio} $</span>`;
+         nombre.style='margin-top:30px';
+         img.src=data.producto[0].url;
+         img.style='width:20%';
+         img.classList.add('claseIMG');
+         div2.append(nombre);
+         div2.append(precio);
+         div.append(img);
+         div.append(div2);
+         fragmento.append(div);
+         galeriaImagenesBusqueda.append(fragmento);
+      // Muestra los resultados en la página  
+
+        }else{
+
+             
+        // No se encontraron resultados, muestra un mensaje
+        let mensaje = document.createElement('P');
+        mensaje.style='color:red;margin-top:60px;font:30px "fuenteC"';
+        mensaje.innerHTML = 'No se encontraron resultados';
+        galeriaImagenesBusqueda.appendChild(mensaje);
+
+
+        }
+             
+    })
+    .catch(error => {
+      console.error(error.message);
+    });
+}
+
+        </script>
+    </body>
+</html>
