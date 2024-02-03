@@ -11,6 +11,7 @@
     "jsonwebtoken": "^9.0.2",
     "middleware": "^1.0.0",
     "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.9",
     "nodemon": "^3.0.1",
     "path": "^0.12.7",
     "socket.io": "^4.7.4",

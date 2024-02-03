@@ -293,6 +293,45 @@ app.get('/deleteCompra/:id',(req,res)=>{
   baseDatos.deleteCompra(req,res);
   });
 
+  //------------------------------------------------------
+app.post('/puntuaciones',verifyToken,(req,res)=>{
+  baseDatos.puntuaciones(req,res);
+  });
+//------------------------------------------------------
+app.get('/recuperarPassword',(req,res)=>{
+  res.render('recuperarPassword.ejs',{
+     og: {
+        title: 'Bebidas Alcoholicas',
+        description: 'Ventas de Bebidas Alcoholicas',
+        image: 'https://www.pexels.com/es-es/foto/persona-sosteniendo-un-smartphone-android-samsung-blanco-6347724/',
+        // 
+        }
+  });
+  });
+  //------------------------------------------------------
+  app.post('/recuperarPassword',(req,res)=>{
+  baseDatos.enviarEmailRecuperacion(req,res);
+  });
+  //------------------------------------------------------
+  app.get('/restablecer-contrasena',(req,res)=>{  
+  
+  const token = req.query.token;
+  const UserName = req.query.userName;
+  const tokenCookies = req.cookies.securityToken;
+  res.render('restablecer.ejs',{user:UserName, og: {
+        title: 'Smarphone Solution',
+        description: 'Venta de Productos Telefonicos',
+        image: 'https://www.pexels.com/es-es/foto/persona-sosteniendo-un-smartphone-android-samsung-blanco-6347724/',
+        // Otros metadatos OGP que desees especificar
+        }});
+    
+  });
+  //------------------------------------------------------
+  app.post('/restablecer-contrasena',(req,res)=>{
+  
+  baseDatos.restablecerPost(req,res);
+  
+  });
 //-------------------------------------------------------
 app.get('/logout',(req,res)=>{
   res.clearCookie('token');

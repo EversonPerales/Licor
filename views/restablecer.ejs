@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= og.title %></title>
+  <meta name="description" content="<%= og.description %>">
+  <meta property="og:title" content="<%= og.title %>">
+  <meta property="og:description" content="<%= og.description %>">
+  <meta property="og:image" content="<%= og.image %>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=WDYBWY97KW"></script>
+<!--Google Analytics-->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'WDYBWY97KW');
+</script>
+<!--Schema Markup-->
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Smarphone",
+    "datePublished": "2024-01-26",
+    "author": {
+      "@type":"Person",
+      "name": "Randis Graterol"
+    },
+    "publisher":{
+      "@type": "Organization",
+      "name": "Smarphope Solution",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn-icons-png.flaticon.com/128/186/186239.png"
+      }
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "width": "800",
+      "height": "600"
+    },
+    "description": "Telefonos Inteligentes de alta resolución"
+  }
+  </script>
+	<style type="text/css">
+
+		body{
+			background-image:url('https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	        background-size:cover;
+	        background-attachment: fixed;
+		}
+		form{
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items:center;
+			background:rgba(0,0,0,.6);
+			width:30%;
+			margin:3rem auto;
+		}
+		label{
+			color:white;
+			font-weight:bold;
+			font-size:1.5rem;
+			margin-top: 2rem;
+		}
+		input{
+			margin-top:2rem;
+		}
+		.contenedorBotonera{
+			display:flex;
+		}
+		.contenedorBotonera input{
+			margin:2rem;
+			cursor:pointer;
+		}
+         h1{
+         	color:white;
+         	display:flex;
+         	justify-content: center;
+         	margin-top:2rem;
+         	background: rgba(0,0,0,.6);
+         }
+          @media screen and (max-width:720px){
+ 
+	form{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width:90%;
+	margin:3rem auto;
+	background:rgba(0,0,0,.6);
+}
+    h1{
+         	color:white;
+         	display:flex;
+         	justify-content: center;
+                aling-items:center;
+                text-aling:center;
+         	margin-top:2rem;
+         	background: rgba(0,0,0,.6);
+         }
+label{
+                        display:flex;
+                        justify-content:center;
+                         aling-items:center;
+                         text-aling:center;
+			color:white;
+			font-weight:bold;
+			font-size:1.5rem;
+			margin-top: 2rem;
+		}
+
+}
+	</style>
+</head>
+<body>
+
+<h1>Restablece tu contraseña</h1>
+    
+<form action='/restablecer-contrasena' method="POST">
+        <label>Confirma tu nombre de Usuario</label>
+	<input type="text" name="userName">
+	<label>Contraseña Nueva</label>
+	<input type="password" name="password">
+	<label>Confirmar Contraseña</label>
+	<input type="password" name="passwordC">
+     
+     <div class="contenedorBotonera">
+     	
+	  <input type="submit" value="enviar">
+	  <input type="button" value="Login" onclick="login()">
+
+     </div>
+</form>
+
+
+<script type="text/javascript">
+	function login(){
+		window.location.href='/loginUsers';
+	}
+</script>
+</body>
+</html>

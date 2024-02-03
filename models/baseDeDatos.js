@@ -5,8 +5,34 @@ const fs = require('fs');
 const { secretKey,apiKeyy} = process.env;
 const jwt = require ('jsonwebtoken');
 const axios = require ('axios');
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 const { type } = require('os');
 const { response } = require('express');
+
+//Mnesaje de Bienvenida
+const transporter = nodemailer.createTransport({
+  service:'Gmail',
+  auth:{
+    user:'eversonperales14@gmail.com',
+    pass:'qzpuaxksmeduqjvt'
+  }
+});
+
+//Mensaje de recuperacion
+const transporter2 = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'eversonperales14@gmail.com',
+    pass: 'qzpuaxksmeduqjvt'
+  }
+});
+
+
+
+
 // Crear la base de datos
 const dbname = path.join(__dirname,'../db','base.db');
 const db = new sqlite3.Database(dbname,{verbose:true,charset:'utf8'},err=>{
@@ -94,7 +120,13 @@ db.run(`
  END;   
 `);
 
-
+db.run(`CREATE TABLE IF NOT EXISTS puntuaciones (
+  puntuacionID INTEGER PRIMARY KEY AUTOINCREMENT,
+  nombre_de_usuario TEXT NOT NULL,
+  puntuacion INTEGER NOT NULL,
+  producto_id INTEGER,
+  FOREIGN KEY (producto_id) REFERENCES productos(producto_id)
+);`);
 
 
 });
@@ -602,6 +634,133 @@ function deleteCompra(req,res){
     res.redirect('/compras')
   })
 }
+
+function puntuaciones(req,res){
+
+  const UserName = req.user.nombre;
+  
+  const {puntuacion,idProducto} = req.body;
+  
+  console.log(` puntuacion ${puntuacion} del producto con el id : ${idProducto} nombre del usuario ${UserName}`);
+  
+  const sql = `SELECT * FROM puntuaciones WHERE producto_id = ?`;
+  
+  db.get(sql,[idProducto],(error,datos)=>{
+  
+    // Obtener la puntuación actual del producto
+    //                               operador ternario
+    const puntuacionActual = datos ? datos.puntuacion : 0;
+     
+    // Calcular la nueva puntuación sumando la puntuación actual con la nueva puntuación
+    const nuevaPuntuacion = puntuacionActual + puntuacion;
+  
+  
+  if(puntuacionActual == 0){
+  
+    /////////////////////////////////////////////////////////
+  const sql2=`INSERT INTO puntuaciones (nombre_de_usuario,puntuacion,producto_id)
+  VALUES (?,?,?)`;
+  
+  db.run(sql2,[UserName,puntuacion,idProducto],(e)=>{
+  
+  if(e) return console.log(e.message);
+  
+  const sql3 = `SELECT * FROM puntuaciones WHERE producto_id = ?`;
+          db.get(sql3, [idProducto], (errorNew, datosNew) => {
+  
+            if (errorNew) return console.error(errorNew.message);
+            
+            console.log('Puntuación agregada:', puntuacion);
+  
+            res.json({puntuacion: datosNew.puntuacion});
+          });
+  
+  });
+  
+  }else{
+  
+      if(datos.nombre_de_usuario == UserName && datos.producto_id == idProducto){
+        console.log(`El usuario ${UserName} ya califico el producto`);
+       res.json({interruptor:true});
+      }else{
+       
+       // Actualizar la puntuación en la base de datos
+      const sqlUpdate = `UPDATE puntuaciones SET puntuacion = ?,nombre_de_usuario = ? WHERE producto_id = ?`;
+      db.run(sqlUpdate, [nuevaPuntuacion,UserName,idProducto], errorUpdate => {
+        if (errorUpdate) return console.error(errorUpdate.message);
+  
+        console.log(`Puntuación actualizada: ${nuevaPuntuacion}`);
+  
+        // Enviar la nueva puntuación al frontend
+        res.json({ puntuacion: nuevaPuntuacion,interruptor:false});
+      });
+  
+      }
+      
+  
+  }
+  
+  ///////////////////////////////////////////////////////
+  
+  });
+  
+  }
+  
+  function enviarEmailRecuperacion(req,res){
+    const email = req.body.email;
+    const UserName = req.body.userName;
+  // Generar un token único
+    const token = crypto.randomBytes(20).toString('hex');
+  
+    // Almacenar el token en tu base de datos o en una estructura de datos adecuada junto con la información del usuario
+   res.cookie('securityToken',token, { httpOnly: true, secure: true });
+  
+    // Crear la URL de recuperación de contraseña
+    const recoveryURL = `http://licor.onrender.com/restablecer-contrasena?token=${token}?userName=${UserName}`;
+  
+    // Enviar el correo electrónico de recuperación de contraseña
+    const mailOptions = {
+      from: 'eversonperales14@gmail.com',
+      to: email,
+      subject: 'Recuperación de contraseña',
+      text: `Haz clic en el siguiente enlace para restablecer tu contraseña: ${recoveryURL}`
+    };
+  
+    transporter2.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.send('Error al enviar el correo electrónico de recuperación de contraseña');
+      } else {
+        console.log('Correo electrónico de recuperación de contraseña enviado:', info.response);
+      }
+  
+  });
+  
+    res.redirect('/loginUsers');
+  
+  }
+  
+  function restablecerPost(req,res){
+  
+  const {passwordC,userName} = req.body;
+  
+  const sql = `UPDATE usuarios SET password = ? WHERE nombre = ?`;
+  db.run(sql,[passwordC,userName],e=>{
+  
+   if(e){
+      console.error(e.message);
+   }else{
+    res.redirect('/loginUsers');
+   }
+  
+  })
+  
+  }
+
+
+
+
+
 module.exports={
  aggDato,
  mostrarProductos,
@@ -633,7 +792,10 @@ module.exports={
  updateUser,
  updateUserPOST,
  deleteUser,
- deleteCompra
+ deleteCompra,
+ puntuaciones,
+ enviarEmailRecuperacion,
+ restablecerPost
  }
 
 

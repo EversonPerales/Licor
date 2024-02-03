@@ -14,15 +14,14 @@
         <label for="menu">
             <img src="/img/1.jpg" class="menu-icono" alt="">
         </label>
-        <div class="row input-group-newsletter">
-            <div class="col">
+        <div id='col'>
 
-                <input class="form-control" id="buscarPrincipal" type="search" placeholder="Buscar Producto..." aria-label="Buscar Producto..."/>
-          
 
-                <button id='botonP' onclick="buscarProductos()" >Buscar</button>
-            </div>
-
+            <input type="search" placeholder="Buscar" id='buscarPrincipal'> 
+   
+            <a href="#scroll"><button onclick="buscarProductos()" id='boton3'>Buscar</button>
+            </a>
+   
         </div>
         <nav class="navbar">
             <ul>
@@ -74,8 +73,8 @@ Bienvenidos a nuestra pagina web de ventas de bebidas alcoholicas.
                                    <div id='NPB'>
                                      
                                      <div style='display:flex;flex-direction: column;justify-content:center;align-items:center'>
-                            <strong><p>Nombre:</strong><%= producto[x].nombre %></p>
-                            <strong><p>Precio: </strong><span style='color:green'><%= producto[x].precio %> $</span></p>
+                            <strong><p class="ordenar">Nombre:</strong><%= producto[x].nombre %></p>
+                            <strong><p class="ordenar">Precio: </strong><span style='color:green'><%= producto[x].precio %> $</span></p>
 
                                      </div>
         
@@ -84,7 +83,32 @@ Bienvenidos a nuestra pagina web de ventas de bebidas alcoholicas.
                                         <a href="/comprar/<%=producto[x].producto_id%>"><img src="/img/carrito.png" width='35'></a>
             
                                         <a href="/detalles/<%=producto[x].producto_id%>" style='margin-top:7px;margin-left:8px;'><img src="/img/img.png" width="35"></a> 
-                                        </div>
+                                        <div class='contenedorPuntuacion'>
+
+                                            <p class="puntuacion" data-producto_id='<%=producto[x].producto_id%>' data-puntuacion='<%=producto[x].puntuacion%>'><% if(producto[x].puntuacion !== null){ %>
+                                             Puntuación Total: <%=producto[x].puntuacion%>
+                                            <% }else{%>
+                                             Sin Puntuación
+                                            <% } %> 
+                                            </p>
+                         
+                         
+                                            </div>
+                         
+                                     
+                         
+                                            <div class='estrellas'>
+                                              <img src="/icon/estrella.png" width="20" class="estrella" data-valor='1' title="1">
+                                              
+                                              <img src="/icon/estrella.png" width="20" class="estrella" data-valor='2' title="2">
+                         
+                                              <img src="/icon/estrella.png" width="20" class="estrella" data-valor='3' title="3">
+                         
+                                              <img src="/icon/estrella.png" width="20" class="estrella" data-valor='4' title="4">
+                         
+                                              <img src="/icon/estrella.png" width="20" class="estrella" data-valor='5' data-producto_id='<%=producto[x].producto_id%>' title="5"> 
+                                          </div>  
+                                    </div>
                                    </div>
         
                             </div>
@@ -294,6 +318,48 @@ Bienvenidos a nuestra pagina web de ventas de bebidas alcoholicas.
     </footer>
 
     <script src="/js/script.js"></script>
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+</footer>
+<script type="text/javascript" src='/js/filtroCalificaciones.js'></script>
+<script src="http://localhost:4000/socket.io/socket.io.js"></script>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script type="text/javascript" src='/js/busqueda.js'></script>
+<script type="text/javascript" src='/js/puntuaciones.js'></script>
+<script type="text/javascript">
+   fetch('/transaction')
+   .then(res=>res.json())
+   .then(respuesta=>{
+    if(respuesta.message !== false){
+       console.log(respuesta);
+       Swal.fire(`${respuesta.transaction.message} 
+        transaction : ${respuesta.transaction.data.transaction_id}
+        Reference : ${respuesta.transaction.data.reference}
+        Fecha : ${respuesta.transaction.data.date.split('T')[0]}
+        Hora : ${respuesta.transaction.data.date.split('T')[1].split('.')[0]}`)
 
+       .then(() =>{
+        // Aquí la alerta se ha cerrado
+        console.log("Alerta cerrada");
+        fetch('/eliminarTransaction')
+        .then(res=> res.json())
+        .then(respuesta2=>{
+            console.log(`Message : ${respuesta2.message}`);
+        })
+        .catch(error => {
+               console.error('*_*/-[Error]-/*_*:', error);
+        });
+    }); 
+
+       console.log(respuesta.transaction.message,'respuesta del server');  
+   }else{
+    console.log('No se recibio respuesta of the transaction'); 
+}
+
+})
+</script>
  </body>
 </html>

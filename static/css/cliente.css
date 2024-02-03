@@ -12261,3 +12261,287 @@ section#contact form#contactForm :-ms-input-placeholder {
          
         }
         /*´------------------------´-------*/ 
+/*ESTILOS DE PLANTILLA*/
+
+ .product{
+ display:flex;
+ flex-wrap: wrap;
+ justify-content:space-around;
+ align-items:center;
+ margin-bottom:50px;
+ }
+.imagen{
+  width:100%;
+  height:30vh;
+  transition:all 1s;
+}
+.imagen:hover{
+  transform:scale(1.1);
+  box-shadow:14px 15px 100px black;
+}
+.imgContent{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.productooo{
+ display:flex;
+ flex-direction: column;
+ justify-content:space-around;
+ align-items:center;
+ width:25%;
+ height:auto;
+ margin-top:80px;
+ margin-left:20px;
+}
+.etiquetaP{
+  font-size:1rem;
+  font-weight: bold;
+}
+#searchInputt{
+  width:75%;
+  height:6vh;
+  border-radius:20px;
+  text-align: center;
+}
+#buscarPrincipal{
+  width:75%;
+  height:6vh;
+  text-align: center; 
+  border-radius: 20px; 
+}
+#boton2{
+  width:30%; 
+  height:6vh;
+  margin-left:.5rem;
+  background:rgb(180, 180, 180);
+  border-radius:10px;
+  transition:all 1s;
+}
+#boton3{
+  margin-left: 5px;
+  margin-top: 2px;
+  width:18%; 
+  height:6vh;
+  background:rgb(180, 180, 180);
+  border-radius:20px;
+  transition:all 1s;
+  border:1px solid transparent;
+}
+
+.buscar2{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top:1rem;
+}
+/*header{
+ padding-top:1.5;
+ padding-bottom:1.5px;
+}*/
+#texto{
+color:white;
+margin-top:1rem;
+padding:1rem;
+margin-bottom:1rem;
+background:rgba(0,0,0,.9);
+width:100%;
+}
+#texto p{
+margin:1.5rem;
+font:1.5rem 'arial';
+}
+h2{
+  font:50px 'fuenteC';
+  text-align: center;
+}
+.claseIMG{
+  width:80%;
+  height:40vh;
+  transition:all 1s;
+}
+.claseIMG:hover{
+ transform:scale(1.1);
+ box-shadow:14px 15px 100px black;
+}
+#botonP{
+background:rgb(56, 247, 9);
+height:6vh;
+transition:all 1s;
+border-radius:10px;
+margin-left: 20px;
+}
+#botonP:hover{
+transform:translateY(-5px);
+box-shadow:15px 15px 100px black;
+}
+.prueba{
+  color:red;
+  text-decoration: none;
+}
+/*------------------------------------------------------------*/
+    /*------------------Randis Graterol----------------------*/
+            /*--------------------------------------*/
+#na{
+  display:flex;
+  align-items: center;
+  justify-content:flex-end;
+  width:40%;
+  margin-left:1rem;
+}
+
+#na ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:7vh;
+  margin-top:1rem;
+  margin-right:1rem;
+}
+#na ul a{
+text-decoration:none;
+color:white;
+margin:1rem;
+font:2rem 'fuenteC';
+transition:all 1s;
+}
+#na ul a:hover{
+text-decoration-line: underline;
+}
+
+nav{
+  display:flex;
+  justify-content:flex-start;
+  align-items: center;
+  background:rgb(22, 22, 22);
+}
+nav #aa{
+display:flex;
+justify-content: center;
+align-items: center;
+margin-left:20px;
+text-decoration: none;
+color:white;
+border:1px solid transparent;
+font:3rem 'fuenteC';
+}
+h1{
+  color:white;
+ font:5rem 'fuenteC';
+}
+/*#na ul li{
+???????????
+}*/
+
+#imggg{
+  display:none;
+}
+
+#na2{
+  display:none;
+}
+
+#styleDiv1{
+  width:100%;
+  padding:10px;
+}
+.NPB{ 
+  display:flex;
+  justify-content:center;
+  align-items:center
+  height: auto;
+}
+.comprarDetalles{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center; 
+  margin-left:1rem;
+  height: auto;
+}
+.comprarDetalles a:nth-child(2){
+margin-bottom:1rem;
+}
+
+a{
+  text-decoration: none;
+  color:white;
+}
+ul{
+  list-style: none;
+}
+
+.cuadriculaLista{
+  background:red;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+}
+
+.table{
+display:none;
+width:90%;
+}
+
+/*Clases generadas con Javascript*/
+.tableTR{
+display:flex;
+font-size:20px;
+margin-top:50px;
+border:1px solid black;
+}
+.cadaProducto{
+display:none;
+}
+.tableMostrar{
+  display:inline-block;
+}
+.column{
+  text-align: center;
+  border:1px solid black;
+  width:20%;
+}
+/*boton de cuadricula*/
+#botonCuadricula{
+  width:5vw;
+  background:transparent;
+  margin-left:98%;
+  border:none;
+}
+.ULtabla3{
+  display:none;
+}
+
+.tableMostrar{
+  display:inline-block;
+  width:97%;
+}
+.productooo{
+height:auto;
+padding: 20px;
+background:rgba(208, 232, 250,.5);
+transition:all 2s;
+}
+.productooo:hover{
+background:rgba(4, 160, 255,.3);
+border:none;
+}
+.estrellas{
+display:flex;
+}
+.estrellas img{
+transition: all 1s;
+}
+.estrellas img:hover{
+transform:translateY(-1px);
+box-shadow:5px 5px 15px yellow;
+border-radius:5px;
+}
+.ordenar{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items: center;
+}
